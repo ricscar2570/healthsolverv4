@@ -1,0 +1,15 @@
+﻿version: 0.2
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 789382030021.dkr.ecr.eu-west-1.amazonaws.com
+  build:
+    commands:
+      - echo Build started on date
+      - docker build -t healthsolver-ml .
+      - docker tag healthsolver-ml:latest 789382030021.dkr.ecr.eu-west-1.amazonaws.com/healthsolver-ml:codebuild
+  post_build:
+    commands:
+      - echo Build completed on date
+      - docker push 789382030021.dkr.ecr.eu-west-1.amazonaws.com/healthsolver-ml:codebuild
