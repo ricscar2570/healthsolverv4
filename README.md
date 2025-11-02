@@ -42,39 +42,7 @@ The application uses 8 XGBoost models trained on 50,000 synthetic samples:
 - Docker installed
 - Python 3.11+
 
-### Backend Deployment
 
-1. **Train Models**
-\\\ash
-pip install -r requirements.txt
-python train_optimized.py
-\\\
-
-2. **Build Container**
-\\\ash
-docker build --platform linux/amd64 -t healthsolver-ml .
-\\\
-
-3. **Push to ECR**
-\\\ash
-aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin YOUR_ACCOUNT.dkr.ecr.eu-west-1.amazonaws.com
-docker tag healthsolver-ml:latest YOUR_ACCOUNT.dkr.ecr.eu-west-1.amazonaws.com/healthsolver-ml:latest
-docker push YOUR_ACCOUNT.dkr.ecr.eu-west-1.amazonaws.com/healthsolver-ml:latest
-\\\
-
-4. **Update Lambda**
-\\\ash
-aws lambda update-function-code \
-    --function-name healthsolver-api \
-    --image-uri YOUR_ACCOUNT.dkr.ecr.eu-west-1.amazonaws.com/healthsolver-ml:latest \
-    --region eu-west-1
-\\\
-
-### Frontend Deployment
-
-\\\ash
-aws s3 cp full.html s3://your-bucket-name/ --region eu-west-1
-\\\
 
 ## 📈 Model Performance
 
