@@ -101,9 +101,9 @@ Riccardo Scaringi (@ricscar2570)
 
 ## 🔗 Links
 
-- **Live Demo**: [Coming Soon]
-- **LinkedIn**: [Your Profile]
-- **Portfolio**: [Your Portfolio]
+- **Live Demo**: http://healthsolver-web-1761931563.s3-website-eu-west-1.amazonaws.com/full.html
+- **LinkedIn**: https://www.linkedin.com/in/riccardoscaringi
+- **Portfolio**: https://www.riccardoscaringi.eu/    <-- Update in progress
 
 ---
 
